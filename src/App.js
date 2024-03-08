@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 
+import React from 'react';
+import Home from './pages/Dashboard/Home';
+import SignIn from './pages/Auth/SignIn';
+import Index from './pages/Dashboard/Index';
+
 function App() {
+  const [token,setToken]= React.useState("");
+  React.useEffect(()=>{
+    setToken(localStorage.getItem("token"))
+  },[token])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    {
+      !token ? <SignIn/> : <Index />
+    }
     </div>
   );
 }

@@ -3,11 +3,42 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import SignIn from './pages/Auth/SignIn';
+import EmployeePage from './pages/Dashboard/EmployeePage';
+import CreateEmployee from './pages/Dashboard/CreateEmployee';
+import Home from './pages/Dashboard/Home';
+// import "@fortawesome/fontawesome-free/css/all.min.css";
+const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <App />,
+      
+    },
+    {
+      path: '/signin',
+      element: <SignIn />
+    
+    },
+    {
+      path: '/home-page',
+      element: <Home />
+    },
+    {
+      path: '/employeelist-page',
+      element: <EmployeePage />
+    },
+    {
+      path: '/create/employee',
+      element: <CreateEmployee />
+    }
+])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
