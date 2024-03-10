@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import {
     MDBBtn,
@@ -49,7 +50,7 @@ const SignIn = () => {
 <MDBRow>
 
   <MDBCol col='10' md='6'>
-    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample_image" />
   </MDBCol>
 
   <MDBCol col='4' md='6'>

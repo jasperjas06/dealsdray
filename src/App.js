@@ -1,7 +1,6 @@
 import './App.css';
 
 import React from 'react';
-import Home from './pages/Dashboard/Home';
 import SignIn from './pages/Auth/SignIn';
 import Index from './pages/Dashboard/Index';
 

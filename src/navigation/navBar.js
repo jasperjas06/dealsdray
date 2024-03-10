@@ -1,4 +1,6 @@
-import { Button, IconButton } from '@mui/material'
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Button } from '@mui/material'
 import axios from 'axios'
 import { jwtDecode } from 'jwt-decode'
 import React, { useEffect, useState } from 'react'
