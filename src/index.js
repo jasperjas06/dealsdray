@@ -10,7 +10,10 @@ import EmployeePage from './pages/Dashboard/EmployeePage';
 import CreateEmployee from './pages/Dashboard/CreateEmployee';
 import Home from './pages/Dashboard/Home';
 // import "@fortawesome/fontawesome-free/css/all.min.css";
-const router = createBrowserRouter([
+// import {routes} from "./navigation/publicRoute"
+let token = localStorage.getItem("token")
+let routes =[]
+const router = createBrowserRouter( token?[
     {
       path: '/',
       element: <App />,
@@ -33,6 +36,13 @@ const router = createBrowserRouter([
       path: '/create/employee',
       element: <CreateEmployee />
     }
+]:[
+  {
+    path: '*',
+    element: <SignIn/>
+    
+  }
+  
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

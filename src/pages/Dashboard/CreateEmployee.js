@@ -64,7 +64,7 @@ const CreateEmployee = () => {
   }
   const handleSubmit = async () => {
     try {
-        if(!data.name || !data.email || !data.mobile || !data.designation || !data.course || !data.image || !data.gender){
+        if(!data.name || !data.email || !data.mobile || !data.designation || !data.course  || !data.gender){
             toast.error("Please fill all the fields")
             return
         }

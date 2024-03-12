@@ -29,6 +29,7 @@ const SignIn = () => {
                     toast.success(response.data.message)
                     localStorage.setItem("token",response.data?.token)
                     navigate("home-page")
+                    window.location.reload()
                 })
                 .catch((error)=>{
                     console.log(error.message);

@@ -47,12 +47,13 @@ const EmployeePage = () => {
     { value: "Sales", label: "Sales" },
     { value: "ManualTesting", label: "ManualTesting" },
   ]);
+  const [course, setCourse] = React.useState([])
   let token = localStorage.getItem("token")
   let decode = jwtDecode(token)
   const getUser = async()=>{
     await axios.get(`http://localhost:2000/api/get/user?id=${decode.id}`)
     .then((response)=>{
-      console.log(response.data);
+      // console.log(response.data);
       setUser(response.data)
     }
     )
@@ -86,7 +87,7 @@ const EmployeePage = () => {
   };
   const handleClose = () => setOpen(false);
   const Findanddelete = async ({ id }) => {
-    console.log(id);
+    // console.log(id);
     axios
       .post("http://localhost:2000/api/delete", { id: id })
       .then((response) => {
@@ -177,7 +178,7 @@ const EmployeePage = () => {
   };
   const [loading, setLoading] = React.useState(false);
   const handleImageChange = async({image}) => {
-    console.log("image",image);
+    // console.log("image",image);
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "ppo86s9k");
@@ -199,7 +200,7 @@ const EmployeePage = () => {
     }
 
   }
-  console.log(modalData, "modalData");
+  // console.log(modalData, "modalData");
   const updateEmp = async () => {
     try {
       let id = modalData?._id
@@ -387,33 +388,24 @@ const EmployeePage = () => {
                     });
                   }}
                 >
-                  {modalData.course?.map((item, index) => {
-                    return (
-                      <FormControlLabel
-                        control={<Checkbox checked />}
-                        label={item}
-                        value={item}
-                        isChecked={modalData.course?.includes(item)}
-                      />
-                    );
-                  })}
-                  {/* <FormControlLabel
-                            control={<Checkbox />}
+                  
+                    
+                  <FormControlLabel
+                            control={<Checkbox checked={modalData.course?.includes("MCA")}/>}
                             label="MCA"
                             value={"MCA"}
-                            isChecked={modalData.course?.includes("MCA")}
                             
                           />
                           <FormControlLabel
-                            control={<Checkbox  />}
+                            control={<Checkbox  checked={modalData.course?.includes("BCA")}/>}
                             label="BCA"
                             value={"BCA"}
                           />
                           <FormControlLabel
-                            control={<Checkbox  />}
+                            control={<Checkbox  checked={modalData.course?.includes("BSC")}/>}
                             label="BSC"
                             value={"BSC"}
-                          /> */}
+                          />
                 </FormGroup>
               </Box>
               {loading?<ColorRing height={60} width={60}/>:null}
